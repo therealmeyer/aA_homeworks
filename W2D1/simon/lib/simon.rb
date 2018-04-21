@@ -44,7 +44,7 @@ class Simon
     print "What was the sequence? Type: 'RBG...' "
     user_seq = gets.chomp.split("")
     user_seq = user_seq.map { |color| color = seq_hash[color.upcase]}
-    if user_seq != seq 
+    if user_seq != seq
       @game_over = true
     end
   end
@@ -68,7 +68,6 @@ class Simon
   end
 
   if __FILE__ == $PROGRAM_NAME
-    puts 'o'.colorize(:red)
     Simon.new.play
   end
 
