@@ -11,6 +11,7 @@ class Map
       end
     end
     @map << [key, value]
+    [key,value]
   end
 
   def lookup(key)
@@ -19,15 +20,23 @@ class Map
   end
 
   def remove(key)
-    el = nil
-    @map.each_with_index do |pair, idx|
-      el = @map.slice!(idx) if key == pair[0]
-    end
-    el 
+    @map.reject! { |pair, idx| key == pair[0] }
+    nil
   end
 
   def show
-    p @map
+    deep_dup(@map)
+  end
+
+  private
+  def deep_dup(arr)
+    arr.map do |el|
+      if el.is_a?(Array)
+        deep_dup(el)
+      else
+        el
+      end
+    end 
   end
 
 

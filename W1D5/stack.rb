@@ -5,6 +5,7 @@ class Stack
 
   def add(el)
     @stack.push(el)
+    el
   end
 
   def remove
@@ -12,6 +13,6 @@ class Stack
   end
 
   def show
-    p @stack
+    p @stack.dup
   end
 end

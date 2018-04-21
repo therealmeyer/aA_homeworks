@@ -6,6 +6,7 @@ class Queue
 
   def enqueue(el)
     @queue.unshift(el)
+    el
   end
 
   def dequeue
@@ -13,7 +14,7 @@ class Queue
   end
 
   def show
-    p @queue 
+    p @queue.dup 
   end
 
 end
