@@ -41,9 +41,12 @@ class Simon
 
   def require_sequence
     seq_hash = { "R"=>'red', "B"=>'blue', "G"=>'green', "Y"=>'yellow' }
+    begin
     print "What was the sequence? Type: 'RBG...' "
     user_seq = gets.chomp.split("")
     user_seq = user_seq.map { |color| color = seq_hash[color.upcase]}
+    rescue
+      puts ""
     if user_seq != seq
       @game_over = true
     end
