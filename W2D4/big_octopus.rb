@@ -11,32 +11,6 @@ def sluggish_octopus(fish)
     end
     return longest
   end
-
-end
-
-class Array
-  def merge_sort(&prc)
-    prc ||= Proc.new { |x, y| x <=> y }
-    return self if count <= 1
-
-    midpoint = count / 2
-    sorted_left = self.take(midpoint).merge_sort(&prc)
-    sorted_right = self.drop(midpoint).merge_sort(&prc)
-
-    Array.merge(sorted_left, sorted_right, &prc)
-  end
-
-  private
-  def self.merge(left, right, &prc)
-    return right if left.empty?
-    return left if right.empty?
-    if prc.call(left.first, right.first) == -1
-      el = left.shift
-    else
-      el = right.shift
-    end
-    [el] + Array.merge(left, right, &prc)
-  end
 end
 
 def dominant_octopus(fish)
@@ -69,4 +43,31 @@ end
 
 def fast_dance(direction, tile_hash)
   tile_hash[direction]
+end
+
+# merge_sort methods
+
+class Array
+  def merge_sort(&prc)
+    prc ||= Proc.new { |x, y| x <=> y }
+    return self if count <= 1
+
+    midpoint = count / 2
+    sorted_left = self.take(midpoint).merge_sort(&prc)
+    sorted_right = self.drop(midpoint).merge_sort(&prc)
+
+    Array.merge(sorted_left, sorted_right, &prc)
+  end
+
+  private
+  def self.merge(left, right, &prc)
+    return right if left.empty?
+    return left if right.empty?
+    if prc.call(left.first, right.first) == -1
+      el = left.shift
+    else
+      el = right.shift
+    end
+    [el] + Array.merge(left, right, &prc)
+  end
 end
