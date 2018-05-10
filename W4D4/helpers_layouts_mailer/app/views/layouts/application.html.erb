@@ -20,10 +20,7 @@
     <% else %>
       <%= current_user.username %>
       <form action="<%= session_url %>" method="post">
-        <input
-          type="hidden"
-          name="authenticity_token"
-          value="<%= form_authenticity_token %>">
+        <%= auth_token %>
         <input type="hidden" name="_method" value="delete">
         <input type="submit" value="Logout">
       </form>
@@ -34,4 +31,13 @@
       <%= yield %>
     </main>
   </body>
+
+  <footer>
+    <p>This is our 99 cats site, it is a site for renting cats. You can rent a cat or
+      put your cat up for rental. We guarantee your cat's safety and all our
+      cats are humanely sourced. We pay careful attention to detail in bringing
+      you and your cat the best experience through our site. Please enjoy! </p>
+
+      <%= yield :footer %>
+  </footer>
 </html>
