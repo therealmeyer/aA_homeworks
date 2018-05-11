@@ -5,6 +5,9 @@
   background: white;
   margin: 0 auto;
   color: #ccc;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
 }
 
 .footer-copy {
@@ -22,7 +25,7 @@
 }
 
 .footer a {
-
+  display: block;
 }
 
 .footer a:hover {
