@@ -1,0 +1,27 @@
+<h2 class = "page-header"><%=@track.title%><h2>
+<ul>
+  <li>Album: <%= Album.find(@track.album_id).title %></li>
+  <li>Order: <%= @track.ord %></li>
+  <% if @track.bonus %>
+  <li>Bonus Track</li>
+  <% else %>
+  <li>Regular Track</li>
+  <% end %>
+  <li>Lyrics:
+    <p><%= @track.lyrics %></p>
+  </li>
+</ul>
+
+  <ul class="page-links">
+
+    <li>
+      <a class = "button" href="<%=edit_track_url(@track)%>">Edit Track</a>
+    </li>
+    <li>
+    <form action="<%=track_url(@track)%>" method="post">
+      <input type="hidden" name="_method" value="DELETE">
+      <%= auth_token %>
+      <input type="submit" value="Destroy track">
+    </form>
+    </li>
+  </ul>
