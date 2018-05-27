@@ -81,6 +81,20 @@
 "use strict";
 
 
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var selectLocation = function selectLocation(city, jobs) {
+    return {
+        type: "SWITCH_LOCATION",
+        city: city,
+        jobs: jobs
+    };
+};
+
+exports.default = selectLocation;
+
 /***/ }),
 
 /***/ "./frontend/components/job.jsx":
@@ -378,16 +392,21 @@ document.addEventListener("DOMContentLoaded", function () {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-var initialState = {
-  city: "Please Select",
-  jobs: []
-};
+var initialState = { city: "Please Select", jobs: [] };
 
 var reducer = function reducer() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
   var action = arguments[1];
 
-  return state; // remove this and fill out the body of the reducer function
+  switch (action.type) {
+    case "SWITCH_LOCATION":
+      return {
+        city: action.city,
+        jobs: action.jobs
+      };
+    default:
+      return state;
+  }
 };
 
 exports.default = reducer;
