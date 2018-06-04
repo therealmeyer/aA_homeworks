@@ -1,0 +1,49 @@
+.header {
+  background: black;
+  color: white;
+  border-bottom: 1px solid #ccc;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
+.header-nav {
+  margin: 0 auto;
+  width: 900px;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+}
+
+.header a {
+  display: block;
+  padding: 10px 20px;
+
+}
+
+.header-list {
+  display: flex;
+}
+
+.header-list > li:hover {
+  background: gray;
+}
+
+.main {
+  background-image: url("splash.jpg");
+  height: 500px;
+}
+
+.main h1 {
+  color: white;
+  font-size: 24px;
+  font-weight: 700;
+  text-align: center;
+  line-height: 300px;
+  font-family: sans-serif;
+}
+
+.main h2 {
+  color: white;
+  font-size: 20px;
+  font-family: sans-serif;
+  text-align: center;
+  line-height: 200px;
+}
